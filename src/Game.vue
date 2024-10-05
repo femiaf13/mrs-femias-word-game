@@ -1,8 +1,24 @@
 <script setup lang="ts">
-import { onUnmounted } from 'vue'
+import { onUnmounted, ref } from 'vue'
 import { getWordOfTheDay, allWords } from './words'
+import Dialog from './Dialog.vue'
 import Keyboard from './Keyboard.vue'
 import { LetterState } from './types'
+
+const isModalOpened = ref(false);
+
+const openModal = () => {
+  isModalOpened.value = true;
+  allowInput = false
+};
+const closeModal = () => {
+  isModalOpened.value = false;
+  allowInput = true
+};
+
+const submitHandler = ()=>{
+  //here you do whatever
+}
 
 // Get word of the day
 const answer = getWordOfTheDay()
@@ -180,13 +196,10 @@ function genResultGrid() {
   </Transition>
   <header>
     <h1>Mrs. Femia's Word Game</h1>
-    <a
-      id="source-link"
-      href="https://github.com/yyx990803/vue-wordle"
-      target="_blank"
-      >Make your own!</a
-    >
+    <button @click="openModal">Create your own!</button>
   </header>
+  <Dialog :isOpen="isModalOpened" @modal-close="closeModal" @submit="submitHandler" name="first-modal">
+  </Dialog>
   <div id="board">
     <div
       v-for="(row, index) in board"
