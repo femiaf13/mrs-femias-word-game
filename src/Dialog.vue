@@ -11,7 +11,7 @@ let newAnswer = ref("")
 const url = window.location.hostname
 
 const computedUrl = computed(() => {
-  return `?${btoa(newAnswer.value)}`
+  return `?${btoa(newAnswer.value.toLowerCase())}`
 })
 
 const emit = defineEmits(["modal-close"]);
