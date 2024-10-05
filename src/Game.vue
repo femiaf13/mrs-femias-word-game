@@ -132,7 +132,7 @@ function completeRow() {
           ['Genius', 'Magnificent', 'Impressive', 'Splendid', 'Great', 'Phew'][
             currentRowIndex
           ],
-          -1
+          5000
         )
         success = true
       }, 1600)
@@ -145,7 +145,7 @@ function completeRow() {
     } else {
       // game over :(
       setTimeout(() => {
-        showMessage("Better luck next time!", -1)
+        showMessage("Better luck next time!", 5000)
       }, 1600)
     }
   } else {
