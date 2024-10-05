@@ -30,12 +30,12 @@ onClickOutside(target, ()=>emit('modal-close'))
         </div>
         <div class="modal-body">
           <input v-model="newAnswer" type="text" id="newgame" maxlength="5" onkeydown="return /[a-z]/i.test(event.key)">
-          <p v-if="newAnswer.length == 5">{{ computedUrl }}</p>
-          <a v-if="newAnswer.length == 5" :href="computedUrl" target="_top">{{ computedUrl }}</a>
         </div>
+        <br>
         <div class="modal-footer">
           <slot name="footer">
             <div>
+              <button v-if="newAnswer.length == 5"><a :href="computedUrl" target="_top">Go to game</a></button>
               <button @click.stop="emit('modal-close')">Close</button>
             </div>
           </slot>
@@ -62,6 +62,10 @@ onClickOutside(target, ()=>emit('modal-close'))
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+}
+
+button {
+  margin: 0.5em;
 }
 
 </style>

@@ -16,6 +16,10 @@ header {
   position: relative;
 }
 
+a {
+  color: inherit;
+}
+
 /* #source-link {
   position: absolute;
   right: 1em;
