@@ -129,7 +129,7 @@ function completeRow() {
     } else {
       // game over :(
       setTimeout(() => {
-        showMessage(answer.toUpperCase(), -1)
+        showMessage("Better luck next time!", -1)
       }, 1600)
     }
   } else {
@@ -179,12 +179,12 @@ function genResultGrid() {
     </div>
   </Transition>
   <header>
-    <h1>VVORDLE</h1>
+    <h1>Mrs. Femia's Word Game</h1>
     <a
       id="source-link"
       href="https://github.com/yyx990803/vue-wordle"
       target="_blank"
-      >Source</a
+      >Make your own!</a
     >
   </header>
   <div id="board">
